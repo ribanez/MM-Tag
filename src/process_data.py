@@ -159,7 +159,7 @@ def load_pretrain_embedding(pretrain_embed_file):
     return word2embed
 
 
-def add_unknown_words(word_vecs, vocab, min_df=1, k=100):
+def add_unknown_words(word_vecs, vocab, min_df=100, k=100):
     """
     helper to add random vectors of unknown words which are not in pre-trained vector file.
     if pre-trained vectors are not used, then initialize all words in vocab with random value.
