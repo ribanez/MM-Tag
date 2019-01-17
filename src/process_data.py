@@ -448,9 +448,9 @@ def process_data():
     method to process data and create vocabulary and mapping files.
     """
     # load train/valid/test data
-    train_data = readfile(BASE_DIR + '/' + DATASET + '/train.txt', is_lower=False)
-    valid_data = readfile(BASE_DIR + '/' + DATASET + '/valid.txt', is_lower=False)
-    test_data = readfile(BASE_DIR + '/' + DATASET + '/test.txt', is_lower=False)
+    train_data = readfile(BASE_DIR + '/' + DATASET + '/train.txt', is_lower=False, range_len=[10, 14])
+    valid_data = readfile(BASE_DIR + '/' + DATASET + '/valid.txt', is_lower=False, range_len=[10, 14])
+    test_data = readfile(BASE_DIR + '/' + DATASET + '/test.txt', is_lower=False, range_len=[10, 14])
     print('size: train={}, valid={}, test={}'.format(len(train_data[0]), len(valid_data[0]), len(test_data[0])))
 
     # load label dict
