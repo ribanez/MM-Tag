@@ -32,3 +32,21 @@ A word with tag O is not part of a phrase. Here is an example:
 
 In the following links there are [more about CoNLL-2003](https://www.clips.uantwerpen.be/conll2003/ner/)
 
+Create folder:
+```
+>> mkdir data
+>> mkdir data/conll03
+```
+Download data set:
+
+```
+>> wget https://raw.githubusercontent.com/Franck-Dernoncourt/NeuroNER/master/data/conll2003/en/train.txt data/conll03/train.txt
+>> wget https://raw.githubusercontent.com/Franck-Dernoncourt/NeuroNER/master/data/conll2003/en/test.txt data/conll03/test.txt
+>> wget https://raw.githubusercontent.com/Franck-Dernoncourt/NeuroNER/master/data/conll2003/en/valid.txt data/conll03/valid.txt
+>> wget http://nlp.stanford.edu/data/glove.6B.zip
+>> unzip glove*.zip
+```
+Processing data
+```
+>> python src/processing_data.py
+```
