@@ -461,9 +461,9 @@ def process_data():
         chunk_vocab = merge_vocab(train_data[2], valid_data[2], test_data[2])
         ner_vocab = merge_vocab(train_data[3], valid_data[3], test_data[3])
         print('ner={} pos={},chunk={}'.format(ner_vocab, pos_vocab, chunk_vocab))
-        json.dump(pos_vocab, open(BASE_DIR + '/' + DATASET + '/pos_vocab', 'w'))
-        json.dump(ner_vocab, open(BASE_DIR + '/' + DATASET + '/ner_vocab', 'w'))
-        json.dump(chunk_vocab, open(BASE_DIR + '/' + DATASET + '/chunk_vocab', 'w'))
+        json.dump(pos_vocab, open(BASE_DIR + '/' + DATASET + '/mapping/pos_vocab', 'w'))
+        json.dump(ner_vocab, open(BASE_DIR + '/' + DATASET + '/mapping/ner_vocab', 'w'))
+        json.dump(chunk_vocab, open(BASE_DIR + '/' + DATASET + '/mapping/chunk_vocab', 'w'))
 
     # load embedding and add UNK word in training data
     word_vecs = load_pretrain_embedding(BASE_DIR + setting['embedding_file'])
@@ -539,7 +539,7 @@ def process_data():
 
     # dump data
     print('dump data..')
-    data_file = BASE_DIR + DATASET + '/' + DATASET + '_'+setting['tag_format']+'_'+str(setting['embedding_dim'])+'d.p'
+    data_file = BASE_DIR + DATASET + '/mapping/' + DATASET + '_'+setting['tag_format']+'_'+str(setting['embedding_dim'])+'d.p'
 
     raw_sen_list = [train_data[0], valid_data[0], test_data[0]]
     sen_list = [x_train, x_valid, x_test]
