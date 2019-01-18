@@ -8,7 +8,7 @@ from functools import reduce
 
 setting = {
     'dataset': 'conll03',
-    'data_path': '/home/laoyadi/go_master/data/',
+    'data_path': './data/',
     'embedding_file': 'glove.6B.100d.txt',
     'embedding_dim': 100,
     'train_embed': True,
@@ -76,10 +76,15 @@ def create_examples(sen_list, ner_list, char_list, pos_list, chunk_list, set_typ
     for i, sen in enumerate(sen_list):
         guid = "%s-%s" % (set_type, i)
         sen = sen_list[i]
+        print("SEN ", sen)
         label = ner_list[i]
+        print("LABEL ", label)
         char = char_list[i]
+        print("CHAR ", char)
         pos = pos_list[i]
+        print("POS ", pos)
         chunk = chunk_list[i]
+        print("CHUNK ", chunk)
         examples.append(InputExample(
             guid=guid, sen=sen, char=char, pos=pos, chunk=chunk, label=label))
 
@@ -88,7 +93,7 @@ def create_examples(sen_list, ner_list, char_list, pos_list, chunk_list, set_typ
 
 def load_data():
     print('Loading Data...')
-    data_file = open(BASE_DIR + DATA_SET + '/' + DATA_SET +'_IOB_300d.p', 'rb')
+    data_file = open(BASE_DIR + DATA_SET + '/' + DATA_SET +'_IOB_100d.p', 'rb')
     x = pickle.load(data_file)
     data_file.close()
     return x
